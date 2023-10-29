@@ -12,7 +12,9 @@ const Login = () => {
         <p>This is an error!</p>
         <span>
           Don't you have an account? 
-          <Link to="/register">Register</Link>
+          <Link to="/register">
+            Register
+          </Link>
         </span>
       </form>
     </div>
