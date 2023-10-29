@@ -9,7 +9,7 @@ const Login = () => {
         <input required type="text" placeholder='Username' />
         <input required type="password" placeholder='Password' />
         <button>Login</button>
-        <p>This is an error!!!</p>
+        <p>This is an error!</p>
         <span>
           Don't you have an account? 
           <Link to="/register">Register</Link>
