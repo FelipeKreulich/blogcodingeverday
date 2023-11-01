@@ -1,6 +1,8 @@
-$lightGreen: #b9e7e7;
+$lightGreen: #03FA6E;
+$brown: #171810;
 
 .app {
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   .container {
@@ -15,13 +17,14 @@ $lightGreen: #b9e7e7;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      border-radius: 5px;
       height: 100vh;
-      background-color: $lightGreen;
+      background-color: $brown;
     }
 
     h1 {
       font-size: 20px;
-      color: teal;
+      color: $lightGreen;
       margin-bottom: 20px;
     }
 
@@ -29,6 +32,7 @@ $lightGreen: #b9e7e7;
       display: flex;
       flex-direction: column;
       padding: 10px;
+      border-radius: 5px;
       background-color: white;
       width: 200px;
       gap: 20px;
@@ -36,26 +40,61 @@ $lightGreen: #b9e7e7;
       input {
         padding: 10px;
         border: none;
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid $brown;
+        outline: none;
       }
 
       button {
         padding: 10px;
         border: none;
-        background-color: teal;
+        background-color: $lightGreen;
         cursor: pointer;
         color: white;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #05ad4e;
+        }
       }
 
       p {
         font-size: 12px;
         color: red;
         text-align: center;
+        font-weight: 600;
       }
 
       span {
         font-size: 12px;
         text-align: center;
+
+        .login {
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
+          color: $lightGreen;
+          font-weight: 600;
+
+          &:hover {
+            color: #05ad4e;
+            text-decoration: underline $brown;
+            transition: all .4s ease;
+          }
+        }
+
+        .register {
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
+          color: $lightGreen;
+          font-weight: 600;
+
+          &:hover {
+            color: #05ad4e;
+            text-decoration: underline $brown;
+            transition: all .4s ease;
+          }
+        }
       }
     }
 
@@ -69,6 +108,7 @@ $lightGreen: #b9e7e7;
         .logo {
           img {
             width: 120px;
+            border-radius: 50%;
           }
         }
         .links {
@@ -94,11 +134,101 @@ $lightGreen: #b9e7e7;
             align-items: center;
             justify-content: center;
             font-weight: 300;
+            border: 1px solid white;
 
             &:hover {
-              color: teal;
+              width: 48px;
+              height: 48px;
+              color: $lightGreen;
               background-color: white;
-              border: 1px solid teal;
+              border: 1px solid $lightGreen;
+            }
+          }
+        }
+      }
+    }
+
+    // FOOTER
+    footer {
+      margin-top: 100px;
+      padding: 20px;
+      background-color: $lightGreen;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+
+      img {
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+
+    // HOME
+    .home {
+      .posts {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+
+        .post {
+          display: flex;
+          gap: 100px;
+
+          &:nth-child(2n+1) {
+            flex-direction: row-reverse;
+          }
+
+          .img {
+            flex: 2;
+            position: relative;
+
+            &::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              background-color: $lightGreen;
+              position: absolute;
+              top: 20px;
+              left: -20px;
+              z-index: -1;
+            }
+            
+            img {
+              width: 100%;
+              max-height: 400px;
+              object-fit: cover;
+            }
+          }
+
+          .content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+              font-size: 48px;
+            }
+
+            p {
+              font-size: 18px;
+            }
+
+            button {
+              width: max-content;
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              background-color: white;
+              border-bottom: 1px solid $lightGreen;
+              color: $lightGreen;
+
+              &:hover{
+                border: 1px solid $lightGreen;
+                border-radius: 5px;
+              }
             }
           }
         }
