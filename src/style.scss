@@ -1,8 +1,9 @@
 $lightGreen: #03FA6E;
 $brown: #171810;
-
+$darkGray: #37363D;
 .app {
   font-family: 'Poppins', sans-serif;
+  color: $darkGray;
   display: flex;
   justify-content: center;
   .container {
@@ -123,6 +124,14 @@ $brown: #171810;
 
           span {
             cursor: pointer;
+          }
+
+          .activeLink {
+            color: $lightGreen;
+          }
+
+          .link:hover {
+            color: $lightGreen;
           }
 
           .write {
@@ -423,7 +432,7 @@ $brown: #171810;
 
             input:checked {
               accent-color: $lightGreen;
-              
+
             }
           }
         }

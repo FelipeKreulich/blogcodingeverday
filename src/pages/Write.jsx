@@ -16,7 +16,7 @@ const Write = () => {
       </div>
       <div className="menu">
         <div className="item">
-          <h1>Puslish</h1>
+          <h1>Publish</h1>
           <span>
             <b>Status: </b> Draft
           </span>
@@ -33,28 +33,28 @@ const Write = () => {
         <div className="item">
           <h1>Category</h1>
           <div className="cat">
-            <input type="radio" name="cat" value="art" id="art" />
-            <label htmlFor="art">Art</label>
+            <input type="radio" name="cat" value="programacao" id="programacao" />
+            <label htmlFor="programacao">PROGRAMMING</label>
           </div>
           <div className="cat">
-            <input type="radio" name="cat" value="science" id="science" />
-            <label htmlFor="science">Science</label>
+            <input type="radio" name="cat" value="front-end" id="front-end" />
+            <label htmlFor="front-end">FRONT-END</label>
             </div>
           <div className="cat">
-            <input type="radio" name="cat" value="technology" id="technology" />
-            <label htmlFor="technology">Technology</label>
+            <input type="radio" name="cat" value="back-end" id="back-end" />
+            <label htmlFor="back-end">BACK-END</label>
           </div>
           <div className="cat">
-            <input type="radio" name="cat" value="cinema" id="cinema" />
-            <label htmlFor="art">Cinema</label>
+            <input type="radio" name="cat" value="data-science" id="data-science" />
+            <label htmlFor="data-science">DATA SCIENCE</label>
           </div>
           <div className="cat">
-            <input type="radio" name="cat" value="design" id="design" />
-            <label htmlFor="design">Design</label>
+            <input type="radio" name="cat" value="ux-design" id="ux-design" />
+            <label htmlFor="ux-design">UX & DESIGN</label>
           </div>
           <div className="cat">
-            <input type="radio" name="cat" value="food" id="food" />
-            <label htmlFor="food">Food</label>
+            <input type="radio" name="cat" value="mobile" id="mobile" />
+            <label htmlFor="mobile">MOBILE</label>
           </div>
         </div>
       </div>
