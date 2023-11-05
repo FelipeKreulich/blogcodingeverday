@@ -3,15 +3,15 @@ import {
   RouterProvider,
   Route,
   Outlet,
-} from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Home from './pages/Home';
-import Single from './pages/Single';
-import Write from './pages/Write';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import './style.scss';
+} from "react-router-dom";
+import Register from "./pages/Register.jsx";
+import Login from "./pages/Login.jsx";
+import Home from "./pages/Home.jsx";
+import Single from "./pages/Single.jsx";
+import Write from "./pages/Write.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
+import "./style.scss";
 
 const Layout = () => {
   return (
@@ -57,7 +57,7 @@ function App() {
     <div className="container">
       <RouterProvider router={router}/>
     </div>
-  </div>;
-}
+  </div>
+};
 
 export default App;
