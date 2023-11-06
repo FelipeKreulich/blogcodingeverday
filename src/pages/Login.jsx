@@ -13,10 +13,10 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const { login } = useContext(AuthContext); 
+  const { login } = useContext(AuthContext);
 
   const handleChange = (e) => {
-    setInputs((prev) => ({...prev, [e.target.name]: e.target.value}));
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
@@ -24,7 +24,7 @@ const Login = () => {
     try {
       await login(inputs);
       navigate("/");
-    } catch(err) {
+    } catch (err) {
       setError(err.response.data);
     };
   };
@@ -38,7 +38,7 @@ const Login = () => {
         <button onClick={handleSubmit}>Login</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? 
+          Don't you have an account?
           <Link className="register" to="/register">
             Register
           </Link>

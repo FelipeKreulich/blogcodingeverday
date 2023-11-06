@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from 'axios';
+import moment from "moment";
 
 const Home = () => {
 
@@ -39,7 +40,8 @@ const Home = () => {
               <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
-              <p>{getText(post.desc)}</p>
+              <p>{getText(post.resume)}</p>
+              <p>Posted {moment(post.date).fromNow()}</p>
               <Link to={`/post/${post.id}`}>
                 <button>Read More</button>
               </Link>

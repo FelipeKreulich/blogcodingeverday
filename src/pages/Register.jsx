@@ -15,7 +15,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setInputs((prev) => ({...prev, [e.target.name]: e.target.value}));
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const baseURL = "http://localhost:8800/api";
@@ -23,9 +23,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${baseURL}/auth/register`, inputs, {withCredentials: true});
+      await axios.post(`${baseURL}/auth/register`, inputs, { withCredentials: true });
       navigate("/login");
-    } catch(err) {
+    } catch (err) {
       setError(err.response.data);
     };
   };
@@ -41,7 +41,7 @@ const Register = () => {
         <button onClick={handleSubmit}>Register</button>
         {err && <p>{err}</p>}
         <span>
-          Do you have an account? 
+          Do you have an account?
           <Link className="login" to="/login">Login</Link>
         </span>
       </form>

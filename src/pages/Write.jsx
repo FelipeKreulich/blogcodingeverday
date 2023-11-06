@@ -8,13 +8,13 @@ import moment from "moment";
 const Write = () => {
 
   const state = useLocation().state;
-  const [value, setValue] = useState(state?.title || "");
-  const [title, setTitle] = useState(state?.desc || "");
+  const [value, setValue] = useState(state?.desc || "");
+  const [title, setTitle] = useState(state?.title || "");
+  const [resume, setResume] = useState(state?.resume || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
 
   const baseURL = "http://localhost:8800/api";
-  axios.defaults.withCredentials = true;
 
   const navigate = useNavigate()
 
@@ -36,67 +36,31 @@ const Write = () => {
     try {
       state
         ? await axios.put(`${baseURL}/posts/${state.id}`, {
-            title,
-            desc: value,
-            cat,
-            img: file ? imgUrl : "",
-          }, {withCredentials: true})
+          title,
+          resume,
+          desc: value,
+          cat,
+          img: file ? imgUrl : "",
+        }, { withCredentials: true })
         : await axios.post(`${baseURL}/posts/`, {
-            title,
-            desc: value,
-            cat,
-            img: file ? imgUrl : "",
-            date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-          }, {withCredentials: true});
-          navigate("/")
+          title,
+          resume,
+          desc: value,
+          cat,
+          img: file ? imgUrl : "",
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+        }, { withCredentials: true });
+      navigate("/")
     } catch (err) {
       console.log(err);
     }
   };
 
-  // const state = useLocation().state;
-
-  // const [value, setValue] = useState(state?.title || '');
-  // const [title, setTitle] = useState(state?.desc || '');
-  // const [file, setFile] = useState(null);
-  // const [cat, setCat] = useState(state?.cat || '');
-
-  // const navigate = useNavigate();
-
-  // const upload = async () => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append("file", file);
-  //     const baseURL = "http://localhost:8800/api";
-  //     const res = await axios.post(`${baseURL}/upload`, formData, {withCredentials: true});
-  //     return res.data;
-  //   } catch(err) {
-  //     console.log(err);
-  //   };
-  // };
-
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   const imgUrl = await upload();
-
-  //   const baseURL = "http://localhost:8800/api";
-
-  //   try {
-  //     state ? await axios.put(`${baseURL}/posts/${state.id}`, {withCredentials: true}, {
-  //       title, desc:value, cat, img:file ? imgUrl: ""
-  //     }) : await axios.post(`${baseURL}/posts/`, {withCredentials: true}, {
-  //       title, desc:value, cat, img:file ? imgUrl: "", date:moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
-  //     });
-  //     navigate("/");
-  //   } catch(err) {
-  //     console.log(err);
-  //   };
-  // };
-
   return (
     <div className="add">
       <div className="content">
         <input type="text" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
+        <input type="text" value={resume} placeholder="Resume" onChange={(e) => setResume(e.target.value)} />
         <div className="editorContainer">
           <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
         </div>
@@ -110,10 +74,9 @@ const Write = () => {
           <span>
             <b>Visibility: </b> Public
           </span>
-          <input style={{display:"none"}} type="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
+          <input style={{ display: "none" }} type="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
           <label className="file" htmlFor="file">Upload Image</label>
           <div className="buttons">
-            <button>Save as a draft</button>
             <button onClick={handleClick}>Publish</button>
           </div>
         </div>
@@ -126,7 +89,7 @@ const Write = () => {
           <div className="cat">
             <input type="radio" checked={cat === "front-end"} name="cat" value="front-end" id="front-end" onChange={(e) => setCat(e.target.value)} />
             <label htmlFor="front-end">FRONT-END</label>
-            </div>
+          </div>
           <div className="cat">
             <input type="radio" checked={cat === "back-end"} name="cat" value="back-end" id="back-end" onChange={(e) => setCat(e.target.value)} />
             <label htmlFor="back-end">BACK-END</label>

@@ -23,9 +23,9 @@ const Single = () => {
     const baseURL = "http://localhost:8800/api";
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${baseURL}/posts/${postId}`, {withCredentials: true});
+        const res = await axios.get(`${baseURL}/posts/${postId}`, { withCredentials: true });
         setPost(res.data);
-      } catch(err) {
+      } catch (err) {
         console.log(err);
       };
     };
@@ -35,16 +35,11 @@ const Single = () => {
   const handleDelete = async () => {
     try {
       const baseURL = "http://localhost:8800/api";
-      await axios.delete(`${baseURL}/posts/${postId}`, {withCredentials: true});
+      await axios.delete(`${baseURL}/posts/${postId}`, { withCredentials: true });
       navigate("/");
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     };
-  };
-
-  const getText = (html) => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent;
   };
 
   return (
@@ -54,10 +49,10 @@ const Single = () => {
         <div className="user">
           {post.userImg && <img src={post.userImg} alt="User Image" />}
           <div className="info">
-            <span>Editor: {post.username}</span>
+            <span>By: @{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          {currentUser?.username === post?.username && (<div className="edit">
+          {currentUser.username === post.username && (<div className="edit">
             <Link to={`/write?edit=${post.id}`} state={post}>
               <img src={Edit} alt="Edit" />
             </Link>
@@ -69,7 +64,7 @@ const Single = () => {
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(post.desc),
           }}
-        ></p>
+        />
       </div>
       <Menu cat={post.cat} />
     </div>

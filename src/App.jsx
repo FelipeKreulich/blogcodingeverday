@@ -11,6 +11,7 @@ import Single from "./pages/Single.jsx";
 import Write from "./pages/Write.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import CookieConsent from "react-cookie-consent";
 import "./style.scss";
 import "animate.css";
 
@@ -19,6 +20,18 @@ const Layout = () => {
     <>
       <Navbar />
       <Outlet />
+      <CookieConsent
+        location="bottom"
+        buttonText="I agree"
+        cookieName="cookies"
+        enableDeclineButton
+        flipButtons
+        style={{ background: "#171810" }}
+        buttonStyle={{ color: "#171810", fontSize: "13px", background: "#03FA6E" }}
+        expires={150}
+      >
+        This website uses <span style={{ color: "#03FA6E" }}>cookies</span> to enhance the user experience.{" "}
+      </CookieConsent>
       <Footer />
     </>
   );
@@ -28,7 +41,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children:[
+    children: [
       {
         path: "/",
         element: <Home />,
@@ -56,7 +69,7 @@ const router = createBrowserRouter([
 function App() {
   return <div className="app">
     <div className="container">
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
   </div>
 };
