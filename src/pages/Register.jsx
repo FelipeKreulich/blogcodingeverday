@@ -34,6 +34,7 @@ const Register = () => {
     <div className="auth">
       <h1>Create Account</h1>
       <form>
+        <input className="custom-file-upload" type="file" />
         <input required type="text" placeholder="Username" name="username" onChange={handleChange} />
         <input required type="email" placeholder="Email" name="email" onChange={handleChange} />
         <input required type="password" placeholder="Password" name="password" onChange={handleChange} />

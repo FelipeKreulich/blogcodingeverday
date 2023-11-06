@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import logo from "../img/logoCE.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext.jsx";
+import profile from "../img/profile.png";
 
 const Navbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
-    <div className="navbar">
+    <div className="navbar animate__animated animate__backInDown">
       <div className="container">
         <div className="logo">
           <Link>
@@ -34,6 +35,7 @@ const Navbar = () => {
           <Link className="link" to="/?cat=mobile">
             <h6>MOBILE</h6>
           </Link>
+          <img className="profile" src={profile} alt="Profile" />
           <span>{currentUser?.username}</span>
           {currentUser ? (<span onClick={logout}>Logout</span>) : (<Link className="link" to="/login" >Login</Link>)}
           <span className="write">

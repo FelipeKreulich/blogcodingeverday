@@ -12,6 +12,7 @@ import Write from "./pages/Write.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import "./style.scss";
+import "animate.css";
 
 const Layout = () => {
   return (
