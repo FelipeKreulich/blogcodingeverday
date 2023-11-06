@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
-}),json());
+}), json());
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
     cb(null, '../client/public/uploads');
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now()+file.originalname);
+    cb(null, Date.now() + file.originalname);
   },
 });
 
