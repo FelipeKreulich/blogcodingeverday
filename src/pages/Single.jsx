@@ -52,7 +52,7 @@ const Single = () => {
             <span>By: @{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          {currentUser.username === post.username && (<div className="edit">
+          {currentUser?.username === post?.username && (<div className="edit">
             <Link to={`/write?edit=${post.id}`} state={post}>
               <img src={Edit} alt="Edit" />
             </Link>
