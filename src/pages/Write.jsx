@@ -19,10 +19,11 @@ const Write = () => {
   const navigate = useNavigate()
 
   const upload = async () => {
+    const baseURL = "http://localhost:8800/api";
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post(`${baseURL}/upload`, formData);
+      const res = await axios.post(`${baseURL}/upload`, formData, {withCredentials: true});
       return res.data;
     } catch (err) {
       console.log(err);
