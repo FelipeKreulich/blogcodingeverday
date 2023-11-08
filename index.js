@@ -5,6 +5,7 @@ import postRoutes from "./routes/posts.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
+import "dotenv/config.js";
 
 const app = express();
 
@@ -15,10 +16,10 @@ app.use(cors({
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (_req, _file, cb) {
     cb(null, '../client/public/uploads');
   },
-  filename: function (req, file, cb) {
+  filename: function (_req, file, cb) {
     cb(null, Date.now() + file.originalname);
   },
 });
@@ -34,6 +35,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
-app.listen(8800, () => {
+app.listen(process.env.PORT || 8800, () => {
+  console.log("=============")
   console.log("Conectado!");
+  console.log("=============")
 });

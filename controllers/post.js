@@ -42,7 +42,7 @@ export const addPost = (req, res) => {
       userInfo.id
     ];
 
-    db.query(q, [values], (err, data) => {
+    db.query(q, [values], (err, _data) => {
       if (err) return res.status(500).json(err);
       return res.json("Post has been created.");
     })
@@ -59,7 +59,7 @@ export const deletePost = (req, res) => {
     const postId = req.params.id;
     const q = "DELETE FROM posts WHERE `id` = ? AND `uid` = ?";
 
-    db.query(q, [postId, userInfo.id], (err, data) => {
+    db.query(q, [postId, userInfo.id], (err, _data) => {
       if (err) return res.status(403).json("You can delete only your post!");
 
       return res.json("Post has been deleted!");
@@ -86,7 +86,7 @@ export const updatePost = (req, res) => {
       req.body.cat,
     ];
 
-    db.query(q, [...values, postId, userInfo.id], (err, data) => {
+    db.query(q, [...values, postId, userInfo.id], (err, _data) => {
       if (err) return res.status(500).json(err);
       return res.json("Post has been updated.");
     })
