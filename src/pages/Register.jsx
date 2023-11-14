@@ -7,7 +7,7 @@ const Register = () => {
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const [err, setError] = useState(null);
@@ -17,7 +17,7 @@ const Register = () => {
   const baseURL = "http://localhost:8800/api";
 
   const handleChange = (e) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setInputs((prev) => ({ ...prev,[e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
@@ -34,7 +34,7 @@ const Register = () => {
     <div className="auth">
       <h1>Create Account</h1>
       <form>
-        <input className="custom-file-upload" type="file" id="file" />
+        <input className="custom-file-upload" type="file" name="img" />
         <input required type="text" placeholder="Username" name="username" onChange={handleChange} />
         <input required type="email" placeholder="Email" name="email" onChange={handleChange} />
         <input required type="password" placeholder="Password" name="password" onChange={handleChange} />

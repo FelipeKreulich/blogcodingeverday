@@ -19,8 +19,9 @@ const Single = () => {
 
   const { currentUser } = useContext(AuthContext);
 
+  const baseURL = "http://localhost:8800/api";
+
   useEffect(() => {
-    const baseURL = "http://localhost:8800/api";
     const fetchData = async () => {
       try {
         const res = await axios.get(`${baseURL}/posts/${postId}`, { withCredentials: true });
@@ -34,7 +35,6 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      const baseURL = "http://localhost:8800/api";
       await axios.delete(`${baseURL}/posts/${postId}`, { withCredentials: true });
       navigate("/");
     } catch (err) {

@@ -7,8 +7,9 @@ const Menu = ({ cat }) => {
 
   const [posts, setPosts] = useState([]);
 
+  const baseURL = "http://localhost:8800/api";
+
   useEffect(() => {
-    const baseURL = "http://localhost:8800/api";
     const fetchData = async () => {
       try {
         const res = await axios.get(`${baseURL}/posts/?cat=${cat}`, { withCredentials: true });

@@ -19,7 +19,6 @@ const Write = () => {
   const navigate = useNavigate()
 
   const upload = async () => {
-    const baseURL = "http://localhost:8800/api";
     try {
       const formData = new FormData();
       formData.append("file", file);

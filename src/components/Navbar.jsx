@@ -35,7 +35,7 @@ const Navbar = () => {
           <Link className="link" to="/?cat=mobile">
             <h6>MOBILE</h6>
           </Link>
-          <img className="profile" src={profile} alt="Profile" />
+          <img className="profile" src={currentUser?.file || profile} alt="Profile" />
           <span>{currentUser?.username}</span>
           {currentUser ? (<span onClick={logout}>Logout</span>) : (<Link className="link" to="/login" >Login</Link>)}
           <span className="write">

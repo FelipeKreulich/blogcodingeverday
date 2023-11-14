@@ -10,8 +10,9 @@ const Home = () => {
 
   const cat = useLocation().search;
 
+  const baseURL = "http://localhost:8800/api";
+
   useEffect(() => {
-    const baseURL = "http://localhost:8800/api";
     const fetchData = async () => {
       try {
         const res = await axios.get(`${baseURL}/posts${cat}`, { withCredentials: true });
