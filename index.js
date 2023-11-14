@@ -1,19 +1,20 @@
 import express, { json } from "express";
 import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/users.js";
+// import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 import "dotenv/config.js";
 
+const port = process.env.PORT;
+
 const app = express();
 
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
-}), json());
-app.use(cookieParser());
+}), json(), cookieParser());
 
 const storage = multer.diskStorage({
   destination: function (_req, _file, cb) {
@@ -32,11 +33,15 @@ app.post("/api/upload", upload.single("file"), function (req, res) {
 });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
+// app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
-app.listen(process.env.PORT || 8800, () => {
-  console.log("=============")
-  console.log("Conectado!");
-  console.log("=============")
+app.listen(port || 8800, () => {
+  try {
+    console.log("===============");
+    console.log(`📡 - Conectado : ${port}`);
+    console.log("===============");
+  } catch (error) {
+    console.log(`❌ - Error: ${error}`)
+  }
 });
